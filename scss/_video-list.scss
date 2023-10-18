@@ -1,0 +1,37 @@
+.video-list {
+  padding: 80px 0;
+
+  // .video-list__container
+
+  &__container {}
+
+  // .video-list__title
+
+  &__title {
+    font-size: 40px;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    margin-bottom: 40px;
+  }
+
+  // .video-list__items
+
+  &__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px 12px;
+
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+  }
+
+  // .video-list__item
+
+  &__item {}
+}

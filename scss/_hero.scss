@@ -1,0 +1,111 @@
+.hero {
+  padding: 16px 0 32px;
+  background-image: url(../images/hero-bg.jpg);
+  background-color: #FF6A00;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  margin-bottom: 32px;
+
+  @media (min-width: 768px) {
+    padding: 40px 0 40px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px 0 60px;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 60px 0 80px;
+  }
+
+  // .hero__container
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  // .hero__link
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 16px;
+    letter-spacing: 0.02em;
+
+    @media (min-width: 768px) {
+      top: -36px;
+    }
+  }
+
+  // .hero__icon
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  // .hero__logo
+
+  &__logo {
+    width: 145px;
+    height: 19px;
+    margin-bottom: 26px;
+    align-self: flex-start;
+
+    @media (min-width: 768px) {
+      align-self: center;
+      margin-bottom: 45px;
+      width: 200px;
+      height: 27px;
+    }
+
+    @media (min-width: 1440px) {
+      margin-bottom: 80px;
+      width: 240px;
+      height: 32px;
+    }
+  }
+
+  // .hero__title
+
+  &__title {
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 40px;
+      margin-bottom: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      font-size: 50px;
+    }
+
+    @media (min-width: 1440px) {
+      font-size: 70px;
+      margin-bottom: 40px;
+    }
+  }
+
+  // .hero__tegline 
+
+  &__tegline {
+    font-size: 16 px;
+    letter-spacing: 0.2em;
+
+    @media (min-width: 576px) {
+      font-size: 20px;
+    }
+  }
+}

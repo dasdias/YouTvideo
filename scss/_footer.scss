@@ -1,0 +1,64 @@
+.footer {
+  padding: 40px 0;
+  background-image: url(../images/hero-bg.jpg);
+  background-color: #FF6A00;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+
+  // .footer__logo
+  &__logo {}
+
+  // .footer__container
+
+  &__container {
+    display: grid;
+    grid-template-areas:
+      "logo"
+      "developers"
+      "copyright";
+    // grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    align-items: center;
+
+    @media (min-width: 768px) {
+      grid-template-areas:
+        "logo developers"
+        "logo copyright";
+    }
+  }
+
+  // .footer__link
+
+
+  &__link {
+    grid-area: logo;
+    margin-bottom: 24px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+    }
+  }
+
+  // .footer__developers
+
+  &__developers {
+    grid-area: developers;
+    margin-bottom: 16px;
+  }
+
+  // .footer__developers-item
+  &__developers-item {
+    margin-bottom: 9px;
+  }
+
+  // .footer__developers-link
+  &__developers-link {}
+
+  // .footer__copyright
+
+  &__copyright {
+    grid-area: copyright;
+  }
+}
