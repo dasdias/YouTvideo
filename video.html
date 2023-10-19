@@ -2,157 +2,153 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>You-Tvideo - Удобный видеохостинг</title>
-  <link rel="stylesheet" href="./css/normalize.css">
-  <link rel="stylesheet" href="./css/main.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>You-Tvideo - Удобный видеохостинг</title>
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/main.css">
+	<script src="./js/index.js" defer></script>
 </head>
 
 <body>
-  <header class="header">
-    <div class="container header__container">
-      <a class="header__link" href="">
-        <svg class="header__logo" width="240" height="32" role="img" area-label="Логотип сервиса You-Tvideo">
-          <use xlink:href="./images/sprite.svg#logo-orange"></use>
-        </svg>
-      </a>
-      <a href="/favorite.html" class="header__link header__link-favorite">
-        <span>Избранное</span>
-        <svg class="header__icon" width="20" height="20" role="img" area-label="Избранное">
-          <use xlink:href="./images/sprite.svg#star-ob"></use>
-        </svg>
-      </a>
-    </div>
-  </header>
-  <main>
-    <section class="search">
-      <div class="container search__container">
-        <form class="search__form">
-          <input class="search__input" type="search" name="search" placeholder="Найти видео... ">
-          <button class="search__btn" type="submit">
-            <span>Поиск</span>
-            <svg class="search__ico" width="20" height="20" role="img" area-label="Поиск">
-              <use xlink:href="./images/sprite.svg#search"></use>
-            </svg>
-          </button>
-        </form>
-      </div>
-    </section>
-    <section class="video">
-      <div class="container">
-        <div class="video__player">
-          <iframe class="video__iframe" width="560" height="315"
-            src="https://www.youtube.com/embed/cR0ou0U3m2g?si=naw-66I1491SDp-d&amp;start=273"
-            title="YouTube video player" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-        <div class="video__container">
-          <div class="video__content">
-            <h2 class="video__title">Ух ты, говорящая рыба!</h2>
-            <p class="video__channel">Советские фильмы, спектакли и телепередачи</p>
-            <p class="video__info">
-              <span class="video__views">3,1 млн просмотров</span>
-              <span class="video__date">1 год назад</span>
-            </p>
-            <p class="video__description">О том, как говорящая рыбка отплатила добром старому рыбаку за то, что он
-              отпустил ее в
-              море. "Делай добро и бросай его в воду. Оно не пропадет - добром к тебе вернется", - сказала на прощание
-              рыба...
-            </p>
-          </div>
-          <button class="video__link video__link_active">
-            <span class="video__no-favorite">Избранное</span>
-            <span class="video__favorite">В избранном</span>
-            <svg class="video__icon" width="20" height="20" role="img" area-label="В избранном">
-              <use xlink:href="./images/sprite.svg#star"></use>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </section>
-    <section class="video-list">
-      <div class="container video-list__container">
-        <h2 class="video-list__title">Похожие видео</h2>
-        <ul class="video-list__items">
-          <li class="video-list__item">
-            <artical class="video-card">
-              <a href="/video.html?id=15asd45d4" class="video-card__link">
-                <div class="video-card__thumbnail">
-                  <img src="./images/card-01.jpg" alt="Философия Идущего к реке" class="video-card__thumbnail-img">
-                </div>
-                <h3 class="video-card__title">Философия Идущего к реке</h3>
-                <p class="video-card__channel">Правое полушарие интроверта</p>
-                <p class="video-card__duration">31 мин 25 сек</p>
-              </a>
-              <button class="video-card__favorite" type="button" area-label="Добавить в избранное">
-                <svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
-                  <use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
-                  <use class="star" xlink:href="./images/sprite.svg#star"></use>
-                </svg>
-              </button>
-            </artical>
-          </li>
-          <li class="video-list__item">
-            <artical class="video-card">
-              <a href="/video.html?id=15asd45d4" class="video-card__link">
-                <div class="video-card__thumbnail">
-                  <img src="./images/card-02.jpg" alt="Как выжить в Средние века?" class="video-card__thumbnail-img">
-                </div>
-                <h3 class="video-card__title">Как выжить в Средние века?</h3>
-                <p class="video-card__channel">Правое полушарие интроверта</p>
-                <p class="video-card__duration">31 мин 25 сек</p>
-              </a>
-              <button class="video-card__favorite" type="button" area-label="Добавить в избранное">
-                <svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
-                  <use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
-                  <use class="star" xlink:href="./images/sprite.svg#star"></use>
-                </svg>
-              </button>
-            </artical>
-          </li>
-          <li class="video-list__item">
-            <artical class="video-card">
-              <a href="/video.html?id=15asd45d4" class="video-card__link">
-                <div class="video-card__thumbnail">
-                  <img src="./images/card-03.jpg" alt="История Кока Колы" class="video-card__thumbnail-img">
-                </div>
-                <h3 class="video-card__title">История Кока Колы</h3>
-                <p class="video-card__channel">Правое полушарие интроверта</p>
-                <p class="video-card__duration">31 мин 25 сек</p>
-              </a>
-              <button class="video-card__favorite video-card__favorite_active" type="button"
-                area-label="Добавить в избранное">
-                <svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
-                  <use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
-                  <use class="star" xlink:href="./images/sprite.svg#star"></use>
-                </svg>
-              </button>
-            </artical>
-          </li>
-        </ul>
-      </div>
-    </section>
-  </main>
-  <footer class="footer">
-    <div class="container footer__container">
-      <a class="footer__link" href="">
-        <svg class="footer__logo" width="360" height="48" role="img" area-label="Логотип сервиса You-Tvideo">
-          <use xlink:href="./images/sprite.svg#logo-footer"></use>
-        </svg>
-      </a>
-      <ul class="footer__developers">
-        <li class="footer__developers-item">
-          Designer: <a href="#!" class="footer__developers-link" target="_blank" rel="noopener">Anastasia Ilina</a>
-        </li>
-        <li class="footer__developers-item">
-          Developer: <a href="#!" class="footer__developers-link" target="_blank" rel="noopener">Alex</a>
-        </li>
-      </ul>
-      <p class="footer__copyright">© You-Tvideo, 2023</p>
-    </div>
-  </footer>
+	<header class="header">
+		<div class="container header__container">
+			<a class="header__link" href="">
+				<svg class="header__logo" width="240" height="32" role="img" area-label="Логотип сервиса You-Tvideo">
+					<use xlink:href="./images/sprite.svg#logo-orange"></use>
+				</svg>
+			</a>
+			<a href="/favorite.html" class="header__link header__link-favorite">
+				<span>Избранное</span>
+				<svg class="header__icon" width="20" height="20" role="img" area-label="Избранное">
+					<use xlink:href="./images/sprite.svg#star-ob"></use>
+				</svg>
+			</a>
+		</div>
+	</header>
+	<main>
+		<section class="search">
+			<div class="container search__container">
+				<form class="search__form">
+					<input class="search__input" type="search" name="search" placeholder="Найти видео... ">
+					<button class="search__btn" type="submit">
+						<span>Поиск</span>
+						<svg class="search__ico" width="20" height="20" role="img" area-label="Поиск">
+							<use xlink:href="./images/sprite.svg#search"></use>
+						</svg>
+					</button>
+				</form>
+			</div>
+		</section>
+		<section class="video">
+			<div class="container">
+				<div class="video__player">
+					<iframe class="video__iframe" width="560" height="315" src="https://www.youtube.com/embed/cR0ou0U3m2g?si=naw-66I1491SDp-d&amp;start=273" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+				<div class="video__container">
+					<div class="video__content">
+						<h2 class="video__title">Ух ты, говорящая рыба!</h2>
+						<p class="video__channel">Советские фильмы, спектакли и телепередачи</p>
+						<p class="video__info">
+							<span class="video__views">3,1 млн просмотров</span>
+							<span class="video__date">1 год назад</span>
+						</p>
+						<p class="video__description">О том, как говорящая рыбка отплатила добром старому рыбаку за то, что он
+							отпустил ее в
+							море. "Делай добро и бросай его в воду. Оно не пропадет - добром к тебе вернется", - сказала на прощание
+							рыба...
+						</p>
+					</div>
+					<button class="video__link video__link_active">
+						<span class="video__no-favorite">Избранное</span>
+						<span class="video__favorite">В избранном</span>
+						<svg class="video__icon" width="20" height="20" role="img" area-label="В избранном">
+							<use xlink:href="./images/sprite.svg#star"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</section>
+		<section class="video-list">
+			<div class="container video-list__container">
+				<h2 class="video-list__title">Похожие видео</h2>
+				<ul class="video-list__items">
+					<li class="video-list__item">
+						<artical class="video-card">
+							<a href="/video.html?id=15asd45d4" class="video-card__link">
+								<div class="video-card__thumbnail">
+									<img src="./images/card-01.jpg" alt="Философия Идущего к реке" class="video-card__thumbnail-img">
+								</div>
+								<h3 class="video-card__title">Философия Идущего к реке</h3>
+								<p class="video-card__channel">Правое полушарие интроверта</p>
+								<p class="video-card__duration">31 мин 25 сек</p>
+							</a>
+							<button class="video-card__favorite" type="button" area-label="Добавить в избранное">
+								<svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
+									<use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
+									<use class="star" xlink:href="./images/sprite.svg#star"></use>
+								</svg>
+							</button>
+						</artical>
+					</li>
+					<li class="video-list__item">
+						<artical class="video-card">
+							<a href="/video.html?id=15asd45d4" class="video-card__link">
+								<div class="video-card__thumbnail">
+									<img src="./images/card-02.jpg" alt="Как выжить в Средние века?" class="video-card__thumbnail-img">
+								</div>
+								<h3 class="video-card__title">Как выжить в Средние века?</h3>
+								<p class="video-card__channel">Правое полушарие интроверта</p>
+								<p class="video-card__duration">31 мин 25 сек</p>
+							</a>
+							<button class="video-card__favorite" type="button" area-label="Добавить в избранное">
+								<svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
+									<use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
+									<use class="star" xlink:href="./images/sprite.svg#star"></use>
+								</svg>
+							</button>
+						</artical>
+					</li>
+					<li class="video-list__item">
+						<artical class="video-card">
+							<a href="/video.html?id=15asd45d4" class="video-card__link">
+								<div class="video-card__thumbnail">
+									<img src="./images/card-03.jpg" alt="История Кока Колы" class="video-card__thumbnail-img">
+								</div>
+								<h3 class="video-card__title">История Кока Колы</h3>
+								<p class="video-card__channel">Правое полушарие интроверта</p>
+								<p class="video-card__duration">31 мин 25 сек</p>
+							</a>
+							<button class="video-card__favorite video-card__favorite_active" type="button" area-label="Добавить в избранное">
+								<svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
+									<use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
+									<use class="star" xlink:href="./images/sprite.svg#star"></use>
+								</svg>
+							</button>
+						</artical>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</main>
+	<footer class="footer">
+		<div class="container footer__container">
+			<a class="footer__link" href="">
+				<svg class="footer__logo" width="360" height="48" role="img" area-label="Логотип сервиса You-Tvideo">
+					<use xlink:href="./images/sprite.svg#logo-footer"></use>
+				</svg>
+			</a>
+			<ul class="footer__developers">
+				<li class="footer__developers-item">
+					Designer: <a href="#!" class="footer__developers-link" target="_blank" rel="noopener">Anastasia Ilina</a>
+				</li>
+				<li class="footer__developers-item">
+					Developer: <a href="#!" class="footer__developers-link" target="_blank" rel="noopener">Alex</a>
+				</li>
+			</ul>
+			<p class="footer__copyright">© You-Tvideo, 2023</p>
+		</div>
+	</footer>
 </body>
 
 </html>

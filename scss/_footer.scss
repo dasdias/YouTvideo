@@ -1,64 +1,69 @@
 .footer {
-  padding: 40px 0;
-  background-image: url(../images/hero-bg.jpg);
-  background-color: #FF6A00;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  color: #fff;
+	padding: 40px 0;
+	background-image: url(../images/hero-bg.jpg);
+	background-color: #FF6A00;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
 
-  // .footer__logo
-  &__logo {}
+	// .footer__logo
+	&__logo {}
 
-  // .footer__container
+	// .footer__container
 
-  &__container {
-    display: grid;
-    grid-template-areas:
-      "logo"
-      "developers"
-      "copyright";
-    // grid-template-columns: repeat(2, max-content);
-    justify-content: space-between;
-    align-items: center;
+	&__container {
+		display: grid;
+		grid-template-areas:
+			"logo"
+			"developers"
+			"copyright";
+		// grid-template-columns: repeat(2, max-content);
+		justify-content: space-between;
+		align-items: center;
 
-    @media (min-width: 768px) {
-      grid-template-areas:
-        "logo developers"
-        "logo copyright";
-    }
-  }
+		@media (min-width: 768px) {
+			grid-template-areas:
+				"logo developers"
+				"logo copyright";
+		}
+	}
 
-  // .footer__link
+	// .footer__link
 
 
-  &__link {
-    grid-area: logo;
-    margin-bottom: 24px;
+	&__link {
+		grid-area: logo;
+		margin-bottom: 24px;
 
-    @media (min-width: 768px) {
-      margin-bottom: 0;
-    }
-  }
+		@media (min-width: 768px) {
+			margin-bottom: 0;
+		}
+	}
 
-  // .footer__developers
+	// .footer__developers
 
-  &__developers {
-    grid-area: developers;
-    margin-bottom: 16px;
-  }
+	&__developers {
+		grid-area: developers;
+		margin-bottom: 16px;
+	}
 
-  // .footer__developers-item
-  &__developers-item {
-    margin-bottom: 9px;
-  }
+	// .footer__developers-item
+	&__developers-item {
+		margin-bottom: 9px;
+	}
 
-  // .footer__developers-link
-  &__developers-link {}
+	// .footer__developers-link
+	&__developers-link {
 
-  // .footer__copyright
+		&:hover {
+			color: #e0e0e0;
+		}
+	}
 
-  &__copyright {
-    grid-area: copyright;
-  }
+	// .footer__copyright
+
+	&__copyright {
+		grid-area: copyright;
+	}
 }
