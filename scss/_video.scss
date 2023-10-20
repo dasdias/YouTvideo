@@ -96,6 +96,7 @@
 	&__info {
 		font-size: 16px;
 		letter-spacing: 0.02em;
+		margin-bottom: 14px;
 
 		@media (min-width: 768px) {
 			font-size: 20px;
@@ -146,15 +147,27 @@
 			display: none;
 		}
 
+		& .star {
+			display: none;
+		}
+
 		// .video__link_active
 
-		&_active {
+		&.active {
 
 			& .video__no-favorite {
 				display: none;
 			}
 
 			& .video__favorite {
+				display: block;
+			}
+
+			& .star-o {
+				display: none;
+			}
+
+			& .star {
 				display: block;
 			}
 		}

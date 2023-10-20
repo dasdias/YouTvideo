@@ -11,15 +11,13 @@
 }
 html {
   position: relative;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 body {
@@ -37,19 +35,12 @@ body {
   color: #292D32;
   background-color: #fff;
   line-height: 1.2;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 main {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  flex-grow: 1;
 }
 
 img,
@@ -99,8 +90,7 @@ iframe {
 */
 .visually-hidden {
   position: fixed;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
 }
 
 /*
@@ -131,15 +121,9 @@ iframe {
   }
 }
 .header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
 .header__logo {
   width: 145px;
@@ -152,12 +136,8 @@ iframe {
   }
 }
 .header__link-favorite {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 4px;
   font-size: 16px;
   letter-spacing: 0.02em;
@@ -173,8 +153,7 @@ iframe {
 .header__icon {
   width: 20px;
   height: 20px;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .hero {
@@ -203,28 +182,17 @@ iframe {
   }
 }
 .hero__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
   position: relative;
 }
 .hero__link {
   position: absolute;
   top: 0;
   right: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   gap: 4px;
   font-size: 16px;
   letter-spacing: 0.02em;
@@ -250,13 +218,11 @@ iframe {
   width: 145px;
   height: 19px;
   margin-bottom: 26px;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
 @media (min-width: 768px) {
   .hero__logo {
-    -ms-flex-item-align: center;
-        align-self: center;
+    align-self: center;
     margin-bottom: 45px;
     width: 200px;
     height: 27px;
@@ -315,26 +281,6 @@ iframe {
   letter-spacing: 0.02em;
   font-family: "Inter", sans-serif;
 }
-.search__input::-webkit-input-placeholder {
-  color: #292D32;
-  font-family: "Inter", sans-serif;
-  opacity: 0.4;
-}
-.search__input::-moz-placeholder {
-  color: #292D32;
-  font-family: "Inter", sans-serif;
-  opacity: 0.4;
-}
-.search__input:-ms-input-placeholder {
-  color: #292D32;
-  font-family: "Inter", sans-serif;
-  opacity: 0.4;
-}
-.search__input::-ms-input-placeholder {
-  color: #292D32;
-  font-family: "Inter", sans-serif;
-  opacity: 0.4;
-}
 .search__input::placeholder {
   color: #292D32;
   font-family: "Inter", sans-serif;
@@ -346,19 +292,14 @@ iframe {
   right: 0;
   bottom: 0;
   padding: 8px 16px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   border-radius: 40px;
   background-color: #FF6A00;
   letter-spacing: 0.02em;
   gap: 4px;
   color: #fff;
   font-family: "Inter", sans-serif;
-  -webkit-transition: background-color 0.3s ease-in-out;
   transition: background-color 0.3s ease-in-out;
 }
 .search__btn:hover, .search__btn:active {
@@ -427,8 +368,7 @@ iframe {
   position: relative;
 }
 .video-card:hover .video-card__thumbnail {
-  -webkit-transform: scale(1.02);
-          transform: scale(1.02);
+  transform: scale(1.02);
 }
 .video-card__link {
   display: block;
@@ -437,12 +377,8 @@ iframe {
   position: relative;
   padding-bottom: 56.31%;
   margin-bottom: 12px;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: -webkit-transform 0.3s ease-in-out;
+  transform: scale(1);
   transition: transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 .video-card__thumbnail-img {
   position: absolute;
@@ -450,10 +386,8 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   border-radius: 16px;
 }
 .video-card__title {
@@ -510,35 +444,25 @@ iframe {
 .video-card__favorite .star {
   display: none;
 }
-.video-card__favorite_active .star {
+.video-card__favorite.active .star {
   display: block;
 }
-.video-card__favorite_active .star-o {
+.video-card__favorite.active .star-o {
   display: none;
 }
 .video {
   padding-top: 80px;
 }
 .video__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   gap: 24px;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 @media (min-width: 768px) {
   .video__container {
     gap: 84px;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
 .video__player {
@@ -568,17 +492,12 @@ iframe {
 }
 .video__content {
   max-width: 1048px;
-  -ms-flex-negative: 48;
-      flex-shrink: 48;
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
+  flex-shrink: 48;
+  order: 1;
 }
 @media (min-width: 768px) {
   .video__content {
-    -webkit-box-ordinal-group: 1;
-        -ms-flex-order: 0;
-            order: 0;
+    order: 0;
   }
 }
 .video__title {
@@ -617,6 +536,7 @@ iframe {
 .video__info {
   font-size: 16px;
   letter-spacing: 0.02em;
+  margin-bottom: 14px;
 }
 @media (min-width: 768px) {
   .video__info {
@@ -643,16 +563,10 @@ iframe {
   }
 }
 .video__link {
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   white-space: nowrap;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
   gap: 4px;
 }
 .video__link .video__no-favorite {
@@ -661,15 +575,23 @@ iframe {
 .video__link .video__favorite {
   display: none;
 }
-.video__link_active .video__no-favorite {
+.video__link .star {
   display: none;
 }
-.video__link_active .video__favorite {
+.video__link.active .video__no-favorite {
+  display: none;
+}
+.video__link.active .video__favorite {
+  display: block;
+}
+.video__link.active .star-o {
+  display: none;
+}
+.video__link.active .star {
   display: block;
 }
 .video__icon {
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .footer {
@@ -684,12 +606,8 @@ iframe {
 .footer__container {
   display: grid;
   grid-template-areas: "logo" "developers" "copyright";
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .footer__container {
@@ -717,4 +635,4 @@ iframe {
 }
 .footer__copyright {
   grid-area: copyright;
-}/*# sourceMappingURL=main.css.map */
+}
