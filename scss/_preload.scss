@@ -1,0 +1,11 @@
+.preload {
+  width: 100%;
+  height: 100vh;
+  background-color: tomato;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // .preload__text
+  &__text {}
+}
