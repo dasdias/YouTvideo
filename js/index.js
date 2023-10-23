@@ -89,6 +89,30 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
+	const fetchSearchVideos = async (searchQuery, page) => {
+		try {
+			const url = new URL(SEARCH_URL);
+
+			url.searchParams.append('part', 'snippet')
+			url.searchParams.append('q', searchQuery);
+			url.searchParams.append('type', 'video');
+			url.searchParams.append('key', API_KEY)
+			if (page) {
+				url.searchParams.append('pageToken', page);
+			}
+
+			const respons = await fetch(url)
+
+			if (!respons.ok) {
+				throw new Error(`HTTP error ${respons.status}`)
+			}
+
+			return await respons.json()
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
 	// const formatDuration = (durtion) => {
 	//   let str = durtion.slice(2, durtion.length);
 	//   str = str.replace("H", " ч. ");
@@ -147,20 +171,21 @@ document.addEventListener('DOMContentLoaded', () => {
 			// console.log(video);
 			const li = document.createElement('li');
 			li.classList.add('video-list__item')
+			const id = video.id.videoId || video.id;
 			li.innerHTML = `
 				<artical class="video-card">
-						<a href="#/video/${video.id}" class="video-card__link">
+						<a href="#/video/${id}" class="video-card__link">
 							<div class="video-card__thumbnail">
 								<img src="${video.snippet.thumbnails.standard?.url || video.snippet.thumbnails.high?.url}" alt="${video.snippet.title}" class="video-card__thumbnail-img">
 							</div>
 							<h3 class="video-card__title">${video.snippet.title}</h3>
 							<p class="video-card__channel">${video.snippet.channelTitle}</p>
-							<p class="video-card__duration">${convertISOToReadbleDuration(video.contentDetails.duration)}</p>
+							${video.contentDetails ? `<p class="video-card__duration">${convertISOToReadbleDuration(video.contentDetails.duration)}</p>` : ""}
 						</a>
-						<button class="video-card__favorite favorite ${favoriteIds.includes(video.id) ? 'active' : ""}" type="button" area-label="Добавить в избранное, ${video.snippet.title}"
-						data-video-id="${video.id}">
+						<button class="video-card__favorite favorite ${favoriteIds.includes(id) ? 'active' : ""}" type="button" area-label="Добавить в избранное, ${video.snippet.title}"
+						data-video-id="${id}">
 							<svg class="search__ico" width="20" height="20" role="img" area-label="Добавить в избранное">
-								<use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
+								<use class="star-o" xlink:href="./images/sprite.svg#star-bw"></use>
 								<use class="star" xlink:href="./images/sprite.svg#star"></use>
 							</svg>
 						</button>
@@ -168,13 +193,33 @@ document.addEventListener('DOMContentLoaded', () => {
 			`;
 			return li;
 		});
-		if (!pagination) {
-			// TODO: pagination
-			console.log("pagination");
-		}
+
 		videoListSection.append(container);
-		container.append(videoListItems);
+		container.append(title, videoListItems);
 		videoListItems.append(...listVideos);
+
+		if (pagination) {
+			const paginationElem = document.createElement('div');
+			paginationElem.classList.add('pagination');
+
+			if (pagination.prev) {
+				const arrowPrev = document.createElement('a');
+				arrowPrev.classList.add('pagination__arrow');
+				arrowPrev.textContent = 'Предыдущая страница';
+				arrowPrev.href = `#/search?q=${pagination.searchQuery}&page=${pagination.prev}`;
+				paginationElem.append(arrowPrev);
+			}
+
+			if (pagination.next) {
+				const arrowNext = document.createElement('a');
+				arrowNext.classList.add('pagination__arrow');
+				arrowNext.textContent = 'Следующая страница';
+				arrowNext.href = `#/search?q=${pagination.searchQuery}&page=${pagination.next}`;
+				paginationElem.append(arrowNext);
+			}
+			videoListSection.append(paginationElem);
+		}
+
 		return videoListSection;
 	}
 
@@ -216,20 +261,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		const heroSection = document.createElement('section');
 		heroSection.classList.add('hero');
 		heroSection.innerHTML = `
-			<div class="container">
-				<div class="hero__container">
-					<a href="#/favorite" class="hero__link">
-						<span>Избранное</span>
-						<svg class="hero__icon" width="20" height="20" role="img" area-label="Избранное">
-							<use xlink:href="./images/sprite.svg#star-ow"></use>
-						</svg>
-					</a>
-					<svg class="hero__logo" width="240" height="32" role="img" area-label="Logo">
-						<use xlink:href="./images/sprite.svg#logo-white"></use>
+		<div class="container">
+			<div class="hero__container">
+				<a href="#/favorite" class="hero__link">
+					<span>Избранное</span>
+					<svg class="hero__icon" width="20" height="20" role="img" area-label="Избранное">
+						<use xlink:href="./images/sprite.svg#star-ow"></use>
 					</svg>
-					<h1 class="hero__title">Смотри. Загружай. Создавай</h1>
-					<p class="hero__tegline">Удобный видеохостинг для тебя</p>
-				</div>
+				</a>
+				<svg class="hero__logo" width="240" height="32" role="img" area-label="Logo">
+					<use xlink:href="./images/sprite.svg#logo-white"></use>
+				</svg>
+				<h1 class="hero__title">Смотри. Загружай. Создавай</h1>
+				<p class="hero__tegline">Удобный видеохостинг для тебя</p>
+			</div>
 			</div>
 		`;
 		return heroSection;
@@ -248,45 +293,114 @@ document.addEventListener('DOMContentLoaded', () => {
 		searchSection.append(container);
 		container.append(form);
 		form.innerHTML = `
-			<input class="search__input" type="search" name="search" placeholder="Найти видео... ">
-				<button class="search__btn" type="submit">
-					<span>Поиск</span>
-					<svg class="video-card__ico" width="20" height="20" role="img" area-label="Поиск">
-						<use xlink:href="./images/sprite.svg#search"></use>
-					</svg>
-				</button>
-		`;
+		<input class="search__input" type="search" name="search" placeholder="Найти видео... " required>
+			<button class="search__btn" type="submit">
+				<span>Поиск</span>
+				<svg class="video-card__ico" width="20" height="20" role="img" area-label="Поиск">
+					<use xlink:href="./images/sprite.svg#search"></use>
+				</svg>
+			</button>
+	`;
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			if (form.search.value.trim()) {
+				router.navigate(`/search?q=${form.search.value}`)
+			}
+
+		})
 		return searchSection;
 	}
 
+	const createHeader = () => {
+		const header = document.querySelector('.header');
+		if (header) {
+			return header;
+		}
+
+		const heroSection = document.createElement('header');
+		heroSection.classList.add('header');
+
+		heroSection.innerHTML = `
+		<div class="container header__container">
+					<a class="header__link" href="#">
+						<svg class="header__logo" width="240" height="32" role="img" area-label="Логотип сервиса You-Tvideo">
+							<use xlink:href="./images/sprite.svg#logo-orange"></use>
+						</svg>
+					</a>
+					<a href="#/favorite" class="header__link header__link-favorite">
+						<span>Избранное</span>
+						<svg class="header__icon" width="20" height="20" role="img" area-label="Избранное">
+							<!-- <use xlink:href="./images/sprite.svg#star-ob"></use> -->
+							<use class="star-o" xlink:href="./images/sprite.svg#star-ob"></use>
+							<use class="star" xlink:href="./images/sprite.svg#star"></use>
+						</svg>
+					</a>
+				</div>
+		`;
+		return heroSection;
+	}
+
 	const indexRoute = async () => {
+		document.querySelector('.header')?.remove();
 		main.innerHTML = '';
 		preload.append();
 		const hero = createHero();
 		const search = createSearch();
 		const videos = await fetchTrandingVideos();
 		preload.remove();
-		const listVideo = createListVideo(videos);
+		const listVideo = createListVideo(videos, "В тренде");
 		main.append(hero, search, listVideo);
 	};
+
 	const videoRoute = async (ctx) => {
-		console.log(ctx)
 		const id = ctx.data.id;
 		main.textContent = '';
 		preload.append();
+		document.body.prepend(createHeader());
 		const search = createSearch();
 		const data = await fetchVideoData(id);
 		const video = data.items[0];
 		preload.remove();
 		const videoSection = createVideo(video);
 		main.append(search, videoSection);
-	};
-	const favoriteRoute = () => {
-		console.log('favorite')
-	};
-	const searchRoute = () => {
-		console.log('search')
 
+		const searchQuery = video.snippet.title;
+		const videos = await fetchSearchVideos(searchQuery)
+		const listVideo = createListVideo(videos, "Похожее видео");
+		main.append(listVideo);
+
+	};
+
+	const favoriteRoute = async () => {
+		document.body.prepend(createHeader());
+		main.textContent = '';
+		preload.append();
+		const search = createSearch();
+		const videos = await fetchFavoriteVideos();
+		preload.remove();
+		const listVideo = createListVideo(videos, "Избранное");
+		main.append(search, listVideo);
+	};
+
+	const searchRoute = async (ctx) => {
+		const searchQuery = ctx.params.q;
+		const page = ctx.params.page;
+
+		if (searchQuery) {
+			document.body.prepend(createHeader());
+			main.textContent = '';
+			preload.append();
+			const search = createSearch();
+			const videos = await fetchSearchVideos(searchQuery, page);
+			preload.remove();
+			const listVideo = createListVideo(videos, "Избранное", {
+				searchQuery,
+				next: videos.nextPageToken,
+				prev: videos.prevPageToken,
+			});
+			main.append(search, listVideo);
+		}
 	};
 
 	const init = () => {

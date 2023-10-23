@@ -1,0 +1,16 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 50px;
+
+	// .pagination__arrow
+	&__arrow {
+		text-decoration: underline;
+		font-size: 14px;
+
+		&:first-child {
+			margin-right: 24px;
+		}
+	}
+}

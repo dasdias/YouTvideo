@@ -121,6 +121,9 @@
 		font-size: 16px;
 		letter-spacing: 0.02em;
 
+		hyphens: auto;
+		overflow-wrap: anywhere;
+
 		@media (min-width: 768px) {
 			font-size: 20px;
 		}
